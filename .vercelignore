@@ -1,0 +1,10 @@
+# Excluir carpeta del backend
+api/
+
+# Archivos de desarrollo
+*.log
+.env
+.env.local
+
+# Node modules
+node_modules/

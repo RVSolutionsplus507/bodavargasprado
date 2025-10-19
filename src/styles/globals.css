@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base */
+    --background: 40 30% 98%;
+    --foreground: 20 10% 5%;
+
+    /* Tarjetas */
+    --card: 40 30% 96%;
+    --card-foreground: 20 10% 5%;
+
+    /* Popover */
+    --popover: 40 30% 98%;
+    --popover-foreground: 20 10% 5%;
+
+    /* Colores principales */
+    --primary: 20 40% 75%;
+    --primary-foreground: 20 10% 5%;
+
+    --secondary: 43 57% 53%;
+    --secondary-foreground: 20 10% 5%;
+
+    /* Elementos de UI */
+    --muted: 40 30% 90%;
+    --muted-foreground: 20 10% 40%;
+
+    --accent: 174 12% 58%;
+    --accent-foreground: 20 10% 5%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Bordes y elementos de formulario */
+    --border: 20 40% 75%;
+    --input: 20 40% 75%;
+    --ring: 20 40% 75%;
+
+    --radius: 0.5rem;
+
+    /* Colores específicos de la boda */
+    --wedding-primary: 20 40% 74%;
+    --wedding-primary-dark: 20 30% 67%;
+    --wedding-secondary: 43 57% 52%;
+    --wedding-secondary-dark: 43 57% 45%;
+    --wedding-accent: 178 12% 58%;
+    --wedding-accent-dark: 178 12% 48%;
+    --wedding-background: 40 100% 97%;
+    --wedding-background-dark: 260 10% 18%;
+    --wedding-text: 0 0% 29%;
+    --wedding-text-dark: 40 10% 90%;
+  }
+
+  .dark {
+    /* Base */
+    --background: 260 10% 18%;
+    --foreground: 40 30% 90%;
+
+    /* Tarjetas */
+    --card: 260 10% 15%;
+    --card-foreground: 40 30% 90%;
+
+    /* Popover */
+    --popover: 260 10% 15%;
+    --popover-foreground: 40 30% 90%;
+
+    /* Colores principales */
+    --primary: 20 30% 65%;
+    --primary-foreground: 260 10% 10%;
+
+    --secondary: 43 40% 45%;
+    --secondary-foreground: 260 10% 10%;
+
+    /* Elementos de UI */
+    --muted: 260 10% 25%;
+    --muted-foreground: 40 30% 70%;
+
+    --accent: 174 12% 45%;
+    --accent-foreground: 260 10% 10%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 40 30% 90%;
+
+    /* Bordes y elementos de formulario */
+    --border: 20 30% 65%;
+    --input: 20 30% 65%;
+    --ring: 20 30% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-wedding-background text-wedding-text dark:bg-wedding-background-dark dark:text-wedding-text-dark;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-serif;
+  }
+
+  p,
+  span,
+  div,
+  button,
+  input,
+  textarea,
+  select {
+    @apply font-sans;
+  }
+}
+
+@layer components {
+  .wedding-gradient {
+    @apply bg-gradient-to-r from-wedding-primary/20 via-wedding-secondary/20 to-wedding-accent/20;
+  }
+
+  .wedding-card {
+    @apply bg-white/80 dark:bg-wedding-background-dark/80 backdrop-blur-sm border border-wedding-primary/20 dark:border-wedding-primary-dark/20 rounded-lg shadow-md overflow-hidden transition-all duration-300;
+  }
+
+  .wedding-card:hover {
+    @apply shadow-lg border-wedding-primary/40 dark:border-wedding-primary-dark/40 transform -translate-y-1;
+  }
+
+  .wedding-button {
+    @apply bg-wedding-primary hover:bg-wedding-primary-dark text-white font-medium py-2 px-4 rounded-md transition-all duration-300 shadow-sm hover:shadow-md;
+  }
+
+  .wedding-input {
+    @apply border-wedding-primary/30 focus:border-wedding-primary-dark focus:ring-wedding-primary-dark/30 rounded-md;
+  }
+
+  /* Decoraciones florales */
+  .floral-decoration {
+    @apply absolute opacity-20 dark:opacity-10 pointer-events-none;
+  }
+
+  /* Animaciones para elementos de la página */
+  .animate-on-scroll {
+    @apply opacity-0 transition-all duration-700;
+  }
+
+  .animate-on-scroll.visible {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .animate-meteor {
+    animation: meteor linear infinite;
+  }
+  @keyframes meteor {
+    0% {
+      transform: rotate(215deg) translateX(0);
+      opacity: 1;
+    }
+    70% {
+      opacity: 1;
+    }
+    100% {
+      transform: rotate(215deg) translateX(-500px);
+      opacity: 0;
+    }
+  }
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-50%));
+  }
+}
+
+.animate-scroll {
+  animation: scroll var(--animation-duration, 40s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
