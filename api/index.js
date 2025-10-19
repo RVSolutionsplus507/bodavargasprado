@@ -53,6 +53,8 @@ const PORT = process.env.PORT || 3001
 const allowedOrigins = [
   'http://localhost:5173',           // Vite dev
   'http://localhost:3000',           // React dev alternativo
+  'https://bodavargasprado.com',     // Dominio principal
+  'https://www.bodavargasprado.com', // Dominio con www
   process.env.FRONTEND_URL,          // URL de producción de Vercel (configurar en Railway)
 ]
 
@@ -61,7 +63,19 @@ const corsOptions = {
     // Permitir requests sin origin (como mobile apps o curl)
     if (!origin) return callback(null, true)
     
-    if (allowedOrigins.indexOf(origin) !== -1 || allowedOrigins.some(allowed => origin?.startsWith(allowed))) {
+    // Verificar si el origin está en la lista o si coincide con algún patrón
+    const isAllowed = allowedOrigins.some(allowed => {
+      if (!allowed) return false
+      // Coincidencia exacta
+      if (origin === allowed) return true
+      // Permitir subdominios de Vercel
+      if (origin.includes('.vercel.app')) return true
+      // Permitir el dominio principal y www
+      if (origin.includes('bodavargasprado.com')) return true
+      return false
+    })
+    
+    if (isAllowed) {
       callback(null, true)
     } else {
       console.warn(`CORS blocked origin: ${origin}`)
