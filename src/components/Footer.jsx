@@ -1,8 +1,10 @@
 
 import { Heart, Calendar, MapPin, Camera } from "lucide-react"
 import { motion } from "framer-motion"
+import { useTranslation } from "react-i18next"
 
 export function Footer() {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
   return (
@@ -13,7 +15,7 @@ export function Footer() {
             Ambar & Roberto
           </h2>
 
-          <p className="mb-3 sm:mb-4 text-sm sm:text-base">17 de Enero, 2026</p>
+          <p className="mb-3 sm:mb-4 text-sm sm:text-base">{t('home.date')}</p>
 
           <div className="flex justify-center space-x-4 sm:space-x-6 mb-4 sm:mb-6">
             <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-wedding-primary dark:text-wedding-primary-dark" />
@@ -23,7 +25,7 @@ export function Footer() {
           </div>
 
           <p className="text-xs sm:text-sm text-wedding-text/70 dark:text-wedding-text-dark/70 px-2">
-            © {currentYear} Ambar & Roberto - Todos los derechos reservados
+            © {currentYear} Ambar & Roberto - {t('footer.rights')}
           </p>
         </motion.div>
       </div>

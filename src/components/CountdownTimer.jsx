@@ -2,9 +2,11 @@ import { useState, useEffect } from "react"
 import Countdown from "react-countdown"
 import { Heart } from "lucide-react"
 import { motion } from "framer-motion"
-import { RoughUnderline } from "@/components/ui/RoughUnderline"  
+import { RoughUnderline } from "@/components/ui/RoughUnderline"
+import { useTranslation } from "react-i18next"
 
 export function CountdownTimer({ weddingDate }) {
+  const { t } = useTranslation()
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -38,7 +40,7 @@ export function CountdownTimer({ weddingDate }) {
   return (
     <motion.div className="flex flex-col items-center" variants={containerVariants} initial="hidden" animate="visible">
       <motion.h3 variants={itemVariants} className="text-lg sm:text-xl md:text-2xl font-bold mb-3 md:mb-4 text-wedding-accent dark:text-wedding-accent-dark text-center px-2">
-        Te invitamos a nuestra boda en:
+        {t('home.countdown.title')}
       </motion.h3>
       <Countdown
         date={date}
@@ -57,28 +59,28 @@ export function CountdownTimer({ weddingDate }) {
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{days}</div>
-                  <div className="text-xs sm:text-sm mt-1">Días</div>
+                  <div className="text-xs sm:text-sm mt-1">{t('home.countdown.days')}</div>
                 </motion.div>
                 <motion.div
                   className="bg-wedding-secondary/20 dark:bg-wedding-secondary-dark/20 p-2 sm:p-3 rounded-lg min-h-[70px] sm:min-h-[80px] flex flex-col justify-center"
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{hours}</div>
-                  <div className="text-xs sm:text-sm mt-1">Horas</div>
+                  <div className="text-xs sm:text-sm mt-1">{t('home.countdown.hours')}</div>
                 </motion.div>
                 <motion.div
                   className="bg-wedding-accent/20 dark:bg-wedding-accent-dark/20 p-2 sm:p-3 rounded-lg min-h-[70px] sm:min-h-[80px] flex flex-col justify-center"
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{minutes}</div>
-                  <div className="text-xs sm:text-sm mt-1">Minutos</div>
+                  <div className="text-xs sm:text-sm mt-1">{t('home.countdown.minutes')}</div>
                 </motion.div>
                 <motion.div
                   className="bg-wedding-primary/20 dark:bg-wedding-primary-dark/20 p-2 sm:p-3 rounded-lg min-h-[70px] sm:min-h-[80px] flex flex-col justify-center"
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                 >
                   <div className="text-2xl sm:text-3xl md:text-4xl font-bold">{seconds}</div>
-                  <div className="text-xs sm:text-sm mt-1">Segundos</div>
+                  <div className="text-xs sm:text-sm mt-1">{t('home.countdown.seconds')}</div>
                 </motion.div>
               </motion.div>
             )
@@ -98,7 +100,7 @@ export function CountdownTimer({ weddingDate }) {
             animationDuration={5000}
             color="currentColor"
           >
-            17 de Enero, 2026
+            {t('home.date')}
           </RoughUnderline>
         </div>
       </motion.div>

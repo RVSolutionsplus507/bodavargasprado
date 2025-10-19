@@ -4,8 +4,10 @@ import { motion, useAnimation, useInView } from "framer-motion"
 import { MapPin, Clock, Heart, TreeDeciduous, Utensils } from "lucide-react"
 import { LocationMap } from "@/components/LocationMap"
 import { OptimizedImage } from "@/components/ui/OptimizedImage"
+import { useTranslation } from "react-i18next"
 
 export function LocationSection() {
+  const { t } = useTranslation()
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, threshold: 0.2 })
@@ -48,11 +50,11 @@ export function LocationSection() {
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-4 md:mb-6 bg-gradient-to-r from-wedding-primary-dark to-wedding-primary bg-clip-text text-transparent">
-            Dónde Será
+            {t('home.location.title')}
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
-            Nos encantaría que nos acompañes en este día tan especial en el hermoso Tucán Country Club & Resort
+            {t('home.location.description')}
           </p>
         </motion.div>
 
@@ -66,9 +68,9 @@ export function LocationSection() {
               <MapPin className="w-7 h-7 sm:w-8 sm:h-8 text-wedding-primary flex-shrink-0" />
               <div className="text-center sm:text-left">
                 <h3 className="text-lg sm:text-xl md:text-2xl font-serif text-wedding-primary-dark dark:text-wedding-primary">
-                  Tucán Country Club & Resort
+                  {t('home.location.venue')}
                 </h3>
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">Cocolí, Panamá</p>
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300">{t('home.location.city')}</p>
               </div>
             </div>
 
@@ -81,15 +83,15 @@ export function LocationSection() {
                     <TreeDeciduous className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-base sm:text-lg md:text-xl text-wedding-primary-dark dark:text-wedding-primary">Ceremonia</h4>
+                    <h4 className="font-serif text-base sm:text-lg md:text-xl text-wedding-primary-dark dark:text-wedding-primary">{t('home.location.ceremony.title')}</h4>
                     <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                       <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>4:30 PM - 6:00 PM</span>
+                      <span>{t('home.location.ceremony.time')}</span>
                     </div>
                   </div>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Bajo el majestuoso Árbol Corotú, un espacio natural lleno de encanto y belleza
+                  {t('home.location.ceremony.description')}
                 </p>
                 {/* Placeholder para imagen del árbol */}
                 <div className="mt-4 rounded-lg overflow-hidden aspect-video bg-gradient-to-br from-wedding-primary/10 to-wedding-secondary/10">
@@ -108,15 +110,15 @@ export function LocationSection() {
                     <Utensils className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <div>
-                    <h4 className="font-serif text-base sm:text-lg md:text-xl text-wedding-secondary-dark dark:text-wedding-secondary">Recepción</h4>
+                    <h4 className="font-serif text-base sm:text-lg md:text-xl text-wedding-secondary-dark dark:text-wedding-secondary">{t('home.location.reception.title')}</h4>
                     <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-300">
                       <Clock className="w-3 h-3 sm:w-4 sm:h-4" />
-                      <span>6:00 PM - 1:00 AM</span>
+                      <span>{t('home.location.reception.time')}</span>
                     </div>
                   </div>
                 </div>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                  Restaurante Horoko, un ambiente elegante y acogedor para celebrar juntos
+                  {t('home.location.reception.description')}
                 </p>
                 {/* Placeholder para imagen del restaurante */}
                 <div className="mt-4 rounded-lg overflow-hidden aspect-video bg-gradient-to-br from-wedding-secondary/10 to-wedding-accent/10">

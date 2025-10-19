@@ -1,0 +1,357 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "confirm": "Confirmar Asistencia",
+    "gallery": "Galería",
+    "admin": "Administración"
+  },
+  "home": {
+    "title": "Roberto & Ambar",
+    "subtitle": "¡Nos casamos!",
+    "date": "17 de Enero, 2026",
+    "countdown": {
+      "title": "Cuenta Regresiva",
+      "days": "Días",
+      "hours": "Horas",
+      "minutes": "Minutos",
+      "seconds": "Segundos"
+    },
+    "aboutUs": {
+      "title": "Nuestra Historia",
+      "description": "Cada momento compartido ha sido un paso más hacia nuestro gran día. Aquí algunos de los recuerdos más especiales de nuestro camino juntos.",
+      "momentLabel": "Momento",
+      "viewGallery": "Ver Galería Completa",
+      "moments": [
+        {
+          "title": "Los Inicios de Nuestra Amistad",
+          "description": "Todo comenzó con una linda amistad que floreció con el tiempo"
+        },
+        {
+          "title": "Nuestra Primera Cita",
+          "description": "El día que decidimos dar el siguiente paso juntos"
+        },
+        {
+          "title": "Nuestra Primera Aventura",
+          "description": "Descubriendo el mundo juntos por primera vez"
+        },
+        {
+          "title": "Nuestro Hogar",
+          "description": "El lugar donde construimos nuestros sueños"
+        },
+        {
+          "title": "Segunda Escapada",
+          "description": "Más aventuras y recuerdos inolvidables"
+        },
+        {
+          "title": "Momentos Divertidos",
+          "description": "Risas, locuras y la alegría de estar juntos"
+        }
+      ]
+    },
+    "importantInfo": {
+      "title": "Información Importante",
+      "dressCode": {
+        "title": "Código de Vestimenta",
+        "description": "Traje formal. Queremos que todos luzcan elegantes en nuestro día especial."
+      },
+      "ceremony": {
+        "title": "Ceremonia",
+        "description": "Un momento sagrado donde uniremos nuestras vidas ante Dios y nuestros seres queridos."
+      },
+      "buffet": {
+        "title": "Comida Buffet",
+        "description": "Deliciosa variedad de platillos para todos los gustos. ¡Disfruta de una experiencia culinaria única!"
+      },
+      "toast": {
+        "title": "Brindis y Celebración",
+        "description": "Bar abierto toda la noche. Brindemos juntos por el amor y la felicidad."
+      },
+      "dance": {
+        "title": "Baile y Diversión",
+        "description": "Música en vivo y DJ para bailar toda la noche. ¡Prepara tus mejores pasos!"
+      },
+      "gifts": {
+        "title": "Lluvia de Sobres",
+        "description": "Tu presencia es nuestro mejor regalo, pero si deseas obsequiarnos algo, agradecemos tu contribución."
+      }
+    },
+    "quote": {
+      "title": "Reflexiones",
+      "description": "Palabras que inspiran nuestro amor y celebración",
+      "quotes": [
+        {
+          "text": "El amor no consiste en mirarse el uno al otro, sino en mirar juntos en la misma dirección.",
+          "author": "Antoine de Saint-Exupéry"
+        },
+        {
+          "text": "Un matrimonio exitoso requiere enamorarse muchas veces, siempre de la misma persona.",
+          "author": "Mignon McLaughlin"
+        },
+        {
+          "text": "El amor es paciente, es bondadoso. El amor no es envidioso ni jactancioso ni orgulloso.",
+          "author": "1 Corintios 13:4"
+        },
+        {
+          "text": "En ti he encontrado lo que mi alma buscaba, lo que mi corazón anhelaba y lo que mis sueños imaginaban.",
+          "author": "Anónimo"
+        },
+        {
+          "text": "El matrimonio es la unión de dos buenos perdonadores.",
+          "author": "Ruth Bell Graham"
+        },
+        {
+          "text": "Donde hay amor, hay vida.",
+          "author": "Mahatma Gandhi"
+        },
+        {
+          "text": "El amor verdadero no tiene final feliz, porque el amor verdadero nunca termina.",
+          "author": "Anónimo"
+        },
+        {
+          "text": "Crecer en el amor es crecer juntos, apoyándose mutuamente en cada paso del camino.",
+          "author": "Anónimo"
+        }
+      ]
+    },
+    "location": {
+      "title": "Dónde Será",
+      "description": "Nos encantaría que nos acompañes en este día tan especial en el hermoso Tucán Country Club & Resort",
+      "venue": "Tucán Country Club & Resort",
+      "city": "Cocolí, Panamá",
+      "ceremony": {
+        "title": "Ceremonia",
+        "time": "4:30 PM - 6:00 PM",
+        "description": "Bajo el majestuoso Árbol Corotú, un espacio natural lleno de encanto y belleza"
+      },
+      "reception": {
+        "title": "Recepción",
+        "time": "6:00 PM - 1:00 AM",
+        "description": "Restaurante Horoko, un ambiente elegante y acogedor para celebrar juntos"
+      }
+    },
+    "accommodation": {
+      "title": "Hospedaje",
+      "description": "Para tu comodidad, tenemos apartamentos disponibles en el Tucán Country Club & Resort",
+      "venue": "Tucán Country Club & Resort",
+      "available": "Apartamentos Disponibles",
+      "apartmentsTitle": "Apartamentos Disponibles",
+      "apartment1": {
+        "title": "Apartamento de 1 Recámara",
+        "bed": "Cama Queen size (para 2 personas)",
+        "firstNight": "Primera noche:",
+        "firstNightPrice": "$95.00 USD",
+        "additionalNights": "Noches adicionales:",
+        "additionalNightsPrice": "$70.00 USD/noche"
+      },
+      "apartment2": {
+        "title": "Apartamento de 2 Recámaras",
+        "option1": "Opción 1:",
+        "option1Bed": "Cama Queen en cada habitación",
+        "option2": "Opción 2:",
+        "option2Bed1": "Cama Queen en habitación principal",
+        "option2Bed2": "2 camas twins en habitación secundaria",
+        "firstNight": "Primera noche:",
+        "firstNightPrice": "$120.00 USD",
+        "additionalNights": "Noches adicionales:",
+        "additionalNightsPrice": "$90.00 USD/noche"
+      },
+      "schedules": {
+        "title": "Horarios",
+        "checkIn": "Check-in",
+        "checkInTime": "3:00 PM",
+        "checkOut": "Check-out",
+        "checkOutTime": "12:00 PM"
+      },
+      "reservations": {
+        "title": "Reservaciones",
+        "description": "Para reservar, contacta directamente al resort:",
+        "contact": "Contacto",
+        "contactName": "Raul Venedetti",
+        "phone": "Teléfono:",
+        "email": "Correo Electrónico",
+        "important": "Importante:",
+        "importantMessage": "Menciona que eres invitado de la boda de Ambar & Roberto para acceder al descuento especial."
+      },
+      "availabilityNote": "Las habitaciones están sujetas a disponibilidad. Te recomendamos reservar con anticipación."
+    },
+    "rsvp": {
+      "title": "Confirma tu Asistencia",
+      "description": "Por favor confirma tu asistencia antes del",
+      "button": "Confirmar Ahora"
+    }
+  },
+  "confirm": {
+    "title": "Confirmar Asistencia",
+    "enterCode": "Ingresa tu Código de Invitación",
+    "codePlaceholder": "Código de invitación",
+    "searchButton": "Buscar Invitación",
+    "searching": "Buscando...",
+    "notFound": {
+      "title": "Invitación no encontrada",
+      "description": "No pudimos encontrar una invitación con ese código. Por favor verifica el código e intenta nuevamente."
+    },
+    "alreadyConfirmed": {
+      "title": "¡Asistencia Confirmada!",
+      "thanksMessage": "Gracias por confirmar tu asistencia. ¡Nos vemos en la boda!",
+      "guestList": "Lista de invitados confirmados:",
+      "confirmedOn": "Confirmado el"
+    },
+    "form": {
+      "title": "Confirma tu Asistencia",
+      "invitationFor": "Invitación para",
+      "maxGuests": "Máximo de invitados",
+      "guestName": "Nombre completo del invitado",
+      "addGuest": "Agregar otro invitado",
+      "removeGuest": "Eliminar invitado",
+      "confirmButton": "Confirmar Asistencia",
+      "confirming": "Confirmando...",
+      "successMessage": "¡Asistencia confirmada exitosamente!",
+      "errorMessage": "Error al confirmar la asistencia"
+    }
+  },
+  "gallery": {
+    "title": "Galería de Fotos",
+    "loading": "Cargando secciones...",
+    "noSections": "No hay secciones disponibles",
+    "noImages": "No hay imágenes",
+    "noPhotos": "No hay fotos en esta sección",
+    "uploadButton": "Subir Foto",
+    "uploading": "Subiendo...",
+    "uploadButtonAction": "Subir",
+    "fileTooLarge": "El archivo es demasiado grande. Máximo 5MB.",
+    "uploadSuccess": "Foto subida exitosamente",
+    "uploadError": "Error al subir la foto"
+  },
+  "dashboard": {
+    "title": "Panel de Administración",
+    "password": {
+      "title": "Acceso al Panel de Administración",
+      "label": "Contraseña",
+      "placeholder": "Ingresa la contraseña",
+      "button": "Acceder",
+      "incorrect": "Contraseña incorrecta",
+      "granted": "¡Acceso concedido!"
+    },
+    "tabs": {
+      "stats": "Estadísticas",
+      "invitations": "Invitaciones",
+      "create": "Crear",
+      "gallery": "Galería"
+    },
+    "stats": {
+      "totalGuests": "Invitados Totales",
+      "maxCapacity": "Capacidad máxima: 140 invitados",
+      "confirmed": "Confirmados",
+      "ofGuests": "de los invitados",
+      "invitations": "Invitaciones",
+      "confirmedInvitations": "confirmadas",
+      "loading": "Cargando estadísticas...",
+      "error": "Error al cargar estadísticas",
+      "retry": "Reintentar"
+    },
+    "invitations": {
+      "title": "Gestión de Invitaciones",
+      "total": "Total de invitaciones",
+      "search": "Buscar por nombre o código...",
+      "code": "Código",
+      "primaryGuest": "Invitado Principal",
+      "maxGuests": "Máx. Invitados",
+      "status": "Estado",
+      "confirmed": "Confirmada",
+      "pending": "Pendiente",
+      "confirmedOn": "Confirmado el",
+      "guests": "invitados",
+      "actions": "Acciones",
+      "delete": "Eliminar",
+      "deleteConfirm": "¿Estás seguro de eliminar esta invitación?",
+      "deleteSuccess": "Invitación eliminada exitosamente",
+      "deleteError": "Error al eliminar la invitación",
+      "loading": "Cargando invitaciones...",
+      "noInvitations": "No hay invitaciones creadas aún.",
+      "noResults": "No se encontraron invitaciones."
+    },
+    "createInvitation": {
+      "title": "Crear Nueva Invitación",
+      "description": "Genera un código único para tus invitados",
+      "primaryGuest": "Nombre del Invitado Principal",
+      "primaryGuestPlaceholder": "Ej: Juan Pérez",
+      "maxGuests": "Número Máximo de Invitados",
+      "createButton": "Crear Invitación",
+      "creating": "Creando...",
+      "success": "Invitación creada exitosamente",
+      "error": "Error al crear la invitación"
+    },
+    "galleryAdmin": {
+      "title": "Administración de la Galería",
+      "description": "Crea y gestiona las secciones de la galería. Controla qué secciones son visibles y si permiten subir fotos.",
+      "createSection": {
+        "title": "Crear Nueva Sección",
+        "name": "Nombre de la Sección",
+        "namePlaceholder": "Ej: Ceremonia, Recepción, etc.",
+        "description": "Descripción (opcional)",
+        "descriptionPlaceholder": "Descripción breve",
+        "allowUpload": "Permitir subir fotos",
+        "isActive": "Activar sección",
+        "createButton": "Crear Nueva Sección",
+        "creating": "Creando...",
+        "success": "Sección creada exitosamente",
+        "error": "Error al crear la sección"
+      },
+      "sections": {
+        "title": "Secciones",
+        "active": "Activa",
+        "inactive": "Inactiva",
+        "order": "Orden",
+        "photos": "Fotos",
+        "uploadAllowed": "Subida permitida",
+        "uploadAllowedShort": "Subida OK",
+        "uploadBlocked": "Subida bloqueada",
+        "uploadBlockedShort": "Sin subida",
+        "edit": "Editar Sección",
+        "update": "Actualizar Sección",
+        "updating": "Actualizando...",
+        "delete": "Eliminar",
+        "deleteConfirm": "¿Estás seguro de eliminar esta sección?",
+        "deleteSuccess": "Sección eliminada exitosamente",
+        "deleteError": "Error al eliminar la sección",
+        "updateSuccess": "Sección actualizada exitosamente",
+        "updateError": "Error al actualizar la sección",
+        "loading": "Cargando secciones...",
+        "noSections": "No hay secciones creadas aún."
+      }
+    }
+  },
+  "footer": {
+    "madeWith": "Hecho con",
+    "by": "por",
+    "rights": "Todos los derechos reservados"
+  },
+  "theme": {
+    "light": "Modo Claro",
+    "dark": "Modo Oscuro"
+  },
+  "language": {
+    "spanish": "Español",
+    "english": "English"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "error": "Error",
+    "success": "Éxito",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "close": "Cerrar",
+    "back": "Volver",
+    "next": "Siguiente",
+    "previous": "Anterior",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "clear": "Limpiar",
+    "apply": "Aplicar",
+    "confirm": "Confirmar",
+    "yes": "Sí",
+    "no": "No"
+  }
+}

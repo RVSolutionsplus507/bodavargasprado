@@ -5,11 +5,16 @@ import { ArrowRight, Heart } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { OptimizedImage } from "@/components/ui/OptimizedImage"
 import { carouselItems } from "@/services/carouselItems"
+import { useTranslation } from "react-i18next"
 
 export function AboutUsSectionAttachment() {
+  const { t } = useTranslation()
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, threshold: 0.2 })
+  
+  // Obtener los momentos traducidos
+  const moments = t('home.aboutUs.moments', { returnObjects: true })
 
   useEffect(() => {
     if (inView) {
@@ -43,12 +48,11 @@ export function AboutUsSectionAttachment() {
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-4 md:mb-6 bg-gradient-to-r from-wedding-primary-dark to-wedding-primary bg-clip-text text-transparent">
-            Nuestra Historia
+            {t('home.aboutUs.title')}
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed px-4">
-            Cada momento compartido ha sido un paso más hacia nuestro gran día.
-            Aquí algunos de los recuerdos más especiales de nuestro camino juntos.
+            {t('home.aboutUs.description')}
           </p>
         </motion.div>
 
@@ -88,14 +92,14 @@ export function AboutUsSectionAttachment() {
                   <div className={`text-center md:text-left ${index % 2 === 0 ? 'md:text-right' : 'md:text-left md:pl-8 md:pr-0'}`}>
                     <div className="inline-block bg-wedding-primary/10 dark:bg-wedding-primary-dark/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full mb-3 md:mb-4">
                       <span className="text-xs sm:text-sm font-semibold text-wedding-primary-dark dark:text-wedding-primary">
-                        Momento {index + 1}
+                        {t('home.aboutUs.momentLabel')} {index + 1}
                       </span>
                     </div>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-serif font-bold text-wedding-primary-dark dark:text-wedding-primary mb-2 md:mb-3 px-2">
-                      {item.title}
+                      {moments[index]?.title || item.title}
                     </h3>
                     <p className="text-sm sm:text-base md:text-lg font-medium text-gray-800 dark:text-gray-200 leading-relaxed px-2">
-                      {item.description}
+                      {moments[index]?.description || item.description}
                     </p>
                   </div>
                 </div>
@@ -188,7 +192,7 @@ export function AboutUsSectionAttachment() {
             className="bg-gradient-to-r from-wedding-primary to-wedding-primary-dark hover:from-wedding-primary-dark hover:to-wedding-primary text-white shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105 min-h-[44px]"
           >
             <Link to="/gallery" className="flex items-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 text-sm sm:text-base">
-              <span className="font-medium">Ver Galería Completa</span>
+              <span className="font-medium">{t('home.aboutUs.viewGallery')}</span>
               <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
             </Link>
           </Button>

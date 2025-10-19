@@ -6,8 +6,10 @@ import { WeddingQuotes } from "@/components/WeddingQuotes"
 import { OptimizedImage } from "@/components/ui/OptimizedImage"
 import { FloralDecoration } from "@/components/FloralDecoration"
 import { FloralDivider } from "@/components/FloralDivider"
+import { useTranslation } from "react-i18next"
 
 export function QuoteSection() {
+  const { t } = useTranslation()
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, threshold: 0.2 })
@@ -50,11 +52,11 @@ export function QuoteSection() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-serif mb-6 bg-gradient-to-r from-wedding-primary-dark to-wedding-primary bg-clip-text text-transparent">
-            Reflexiones
+            {t('home.quote.title')}
           </h2>
           
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Palabras que inspiran nuestro amor y celebración
+            {t('home.quote.description')}
           </p>
         </motion.div>
 

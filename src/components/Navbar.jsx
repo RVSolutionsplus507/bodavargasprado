@@ -2,9 +2,12 @@ import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X, Heart } from 'lucide-react';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import { useStore } from '@/store/store';
+import { useTranslation } from 'react-i18next';
 
 export function Navbar() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const { invitation } = useStore();
   const isConfirmed = invitation?.confirmed || false;
@@ -29,7 +32,7 @@ export function Navbar() {
                 ? 'text-wedding-primary-dark dark:text-wedding-primary' 
                 : 'text-gray-600 hover:text-wedding-primary-dark dark:text-gray-300 dark:hover:text-wedding-primary'}`
             } end>
-              Inicio
+              {t('nav.home')}
             </NavLink>
             <NavLink 
               to="/confirm" 
@@ -40,19 +43,21 @@ export function Navbar() {
               }
               onClick={(e) => isConfirmed && e.preventDefault()}
             >
-              Confirmar Asistencia
+              {t('nav.confirm')}
             </NavLink>
             <NavLink to="/gallery" className={({ isActive }) => 
               `px-3 py-2 rounded-md text-sm font-medium ${isActive 
                 ? 'text-wedding-primary-dark dark:text-wedding-primary' 
                 : 'text-gray-600 hover:text-wedding-primary-dark dark:text-gray-300 dark:hover:text-wedding-primary'}`
             }>
-              Galería
+              {t('nav.gallery')}
             </NavLink>
+            <LanguageSwitcher />
             <ThemeToggle />
           </div>
           
           <div className="flex md:hidden items-center">
+            <LanguageSwitcher />
             <ThemeToggle />
             <button
               type="button"
@@ -80,7 +85,7 @@ export function Navbar() {
               onClick={closeMenu}
               end
             >
-              Inicio
+              {t('nav.home')}
             </NavLink>
             <NavLink
               to="/confirm"
@@ -97,7 +102,7 @@ export function Navbar() {
                 }
               }}
             >
-              Confirmar Asistencia
+              {t('nav.confirm')}
             </NavLink>
             <NavLink
               to="/gallery"
@@ -108,7 +113,7 @@ export function Navbar() {
               }
               onClick={closeMenu}
             >
-              Galería
+              {t('nav.gallery')}
             </NavLink>
           </div>
         </div>

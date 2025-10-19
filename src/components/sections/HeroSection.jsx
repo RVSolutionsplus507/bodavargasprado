@@ -3,13 +3,30 @@ import { motion, useAnimation, useInView } from "framer-motion"
 import { CountdownTimer } from "@/components/CountdownTimer"
 import { VideoBackground } from "@/components/ui/VideoBackground"
 import { ArrowDown } from "lucide-react"
+import { useTranslation } from "react-i18next"
 import anillos from "@/assets/anillos.png"
 
 export function HeroSection() {
+  const { t, i18n } = useTranslation()
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true })
   const [videoExists, setVideoExists] = useState(true)
+
+  // Formatear fecha del deadline
+  const formatDeadline = () => {
+    const deadline = import.meta.env.VITE_RSVP_DEADLINE
+    if (!deadline) return ''
+    
+    const date = new Date(deadline)
+    const options = { 
+      day: 'numeric', 
+      month: 'long', 
+      year: 'numeric' 
+    }
+    
+    return date.toLocaleDateString(i18n.language === 'es' ? 'es-ES' : 'en-US', options)
+  }
 
   useEffect(() => {
     if (inView) {
@@ -92,10 +109,10 @@ export function HeroSection() {
             <motion.div variants={itemVariants} className="flex justify-center">
               <div className="bg-white/30 dark:bg-black/30 backdrop-blur-sm p-3 sm:p-4 rounded-lg border border-wedding-primary/20 dark:border-wedding-primary-dark/20 max-w-md mx-auto">
                 <h3 className="text-base sm:text-lg font-medium mb-2 text-wedding-primary-dark dark:text-wedding-primary">
-                  Confirma tu asistencia
+                  {t('home.rsvp.title')}
                 </h3>
                 <p className="text-xs sm:text-sm mb-2 leading-relaxed">
-                  Para confirmar tu asistencia, por favor dirígete al menu "Confirma Asistencia" y utiliza el código proporcionado.
+                  {t('home.rsvp.description')} <span className="font-semibold">{formatDeadline()}</span>
                 </p>
                 <div className="flex justify-center mt-3">
                   <ArrowDown className="animate-bounce text-wedding-primary dark:text-wedding-primary-dark w-5 h-5" />

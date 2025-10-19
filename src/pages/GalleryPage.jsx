@@ -8,8 +8,10 @@ import { Button } from "@/components/ui/button"
 import { toast } from "sonner"
 import { motion } from "framer-motion"
 import { Upload, X } from "lucide-react"
+import { useTranslation } from "react-i18next"
 
 export function GalleryPage() {
+  const { t } = useTranslation();
   const [selectedFile, setSelectedFile] = useState(null)
   const [selectedSection, setSelectedSection] = useState(null)
   const fileInputRef = useRef(null)
@@ -24,7 +26,7 @@ export function GalleryPage() {
     },
     onError: (error) => {
       console.error("Error loading sections:", error)
-      toast.error("Error al cargar las secciones de la galería")
+      toast.error(t('gallery.uploadError'))
     },
   })
 
@@ -34,13 +36,13 @@ export function GalleryPage() {
       return await galleryService.uploadMedia(file, sectionId)
     },
     onSuccess: () => {
-      toast.success("Archivo subido exitosamente")
+      toast.success(t('gallery.uploadSuccess'))
       setSelectedFile(null)
       queryClient.invalidateQueries(["gallerySections"])
     },
     onError: (error) => {
       console.error("Error uploading file:", error)
-      toast.error("Error al subir el archivo")
+      toast.error(t('gallery.uploadError'))
     },
   })
 
@@ -52,7 +54,7 @@ export function GalleryPage() {
     const file = e.target.files?.[0]
     if (file) {
       if (file.size > 5 * 1024 * 1024) { // 5MB limit
-        toast.error("El archivo es demasiado grande. Máximo 5MB.")
+        toast.error(t('gallery.fileTooLarge'))
         return
       }
       setSelectedFile(file)
@@ -76,7 +78,7 @@ export function GalleryPage() {
         <img
           src={media.public_url}
           alt={media.name || "Imagen de galería"}
-          className="max-w-full max-h-full object-contain rounded-lg"
+          className="w-full h-full object-contain"
           loading="lazy"
         />
       )
@@ -85,7 +87,7 @@ export function GalleryPage() {
         <video
           src={media.public_url}
           controls
-          className="max-w-full max-h-full object-contain rounded-lg"
+          className="w-full h-full object-contain"
         />
       )
     }
@@ -96,12 +98,12 @@ export function GalleryPage() {
     <div className="min-h-screen py-12 sm:py-16 px-4">
       <div className="max-w-6xl mx-auto">
         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-cursive text-center mb-8 sm:mb-12 text-wedding-primary-dark dark:text-wedding-primary px-2">
-          Galería de Fotos
+          {t('gallery.title')}
         </h1>
 
         {isLoading ? (
           <div className="text-center py-12">
-            <p className="text-base sm:text-lg">Cargando secciones...</p>
+            <p className="text-base sm:text-lg">{t('gallery.loading')}</p>
           </div>
         ) : sections.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
@@ -136,7 +138,7 @@ export function GalleryPage() {
                         ) : (
                           <div className="w-full h-48 bg-wedding-primary/10 dark:bg-wedding-primary-dark/10 rounded-lg flex items-center justify-center">
                             <p className="text-wedding-primary dark:text-wedding-primary-dark">
-                              No hay imágenes
+                              {t('gallery.noImages')}
                             </p>
                           </div>
                         )}
@@ -144,13 +146,13 @@ export function GalleryPage() {
                     </Card>
                   </motion.div>
                 </DialogTrigger>
-                <DialogContent className="max-w-[calc(100%-1rem)] sm:max-w-[calc(100%-2rem)] md:max-w-4xl w-full max-h-[90vh] overflow-hidden">
-                  <DialogHeader>
+                <DialogContent className="max-w-[95vw] sm:max-w-[90vw] md:max-w-5xl lg:max-w-6xl w-full max-h-[95vh] overflow-y-auto p-4 sm:p-6">
+                  <DialogHeader className="pb-2 sm:pb-4">
                     <DialogTitle className="text-lg sm:text-xl md:text-2xl font-cursive text-wedding-primary-dark dark:text-wedding-primary pr-8">
                       {section.name}
                     </DialogTitle>
                   </DialogHeader>
-                  <div className="space-y-3 sm:space-y-4 md:space-y-6">
+                  <div className="space-y-3 sm:space-y-4">
                     {/* Botón de subida - Solo si allow_upload es true */}
                     {section.allow_upload && (
                       <div className="flex flex-col sm:flex-row justify-end gap-2">
@@ -168,7 +170,7 @@ export function GalleryPage() {
                         disabled={uploadMutation.isLoading}
                       >
                         <Upload className="w-4 h-4" />
-                        {uploadMutation.isLoading ? "Subiendo..." : "Subir Foto"}
+                        {uploadMutation.isLoading ? t('gallery.uploading') : t('gallery.uploadButton')}
                       </Button>
                       {selectedFile && (
                         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 w-full sm:w-auto">
@@ -190,7 +192,7 @@ export function GalleryPage() {
                               disabled={uploadMutation.isLoading}
                               className="min-h-[44px]"
                             >
-                              Subir
+                              {t('gallery.uploadButtonAction')}
                             </Button>
                           </div>
                         </div>
@@ -200,24 +202,26 @@ export function GalleryPage() {
 
                     {/* Carrusel de imágenes */}
                     {section.media && section.media.length > 0 ? (
-                      <div className="relative">
+                      <div className="relative w-full">
                         <Carousel className="w-full">
                           <CarouselContent>
                             {section.media.map((media) => (
                               <CarouselItem key={media.id}>
-                                <div className="flex items-center justify-center bg-black/5 dark:bg-black/20 rounded-lg p-4" style={{ maxHeight: 'calc(90vh - 200px)' }}>
-                                  {renderMedia(media)}
+                                <div className="flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 rounded-lg p-2 sm:p-4 md:p-6">
+                                  <div className="relative w-full h-[400px] sm:h-[500px] md:h-[600px] lg:h-[700px] flex items-center justify-center">
+                                    {renderMedia(media)}
+                                  </div>
                                 </div>
                               </CarouselItem>
                             ))}
                           </CarouselContent>
-                          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2" />
-                          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2" />
+                          <CarouselPrevious className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800" />
+                          <CarouselNext className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-white/90 dark:bg-gray-800/90 hover:bg-white dark:hover:bg-gray-800" />
                         </Carousel>
                       </div>
                     ) : (
                       <div className="text-center py-12 bg-wedding-primary/5 dark:bg-wedding-primary-dark/5 rounded-lg">
-                        <p>No hay fotos en esta sección</p>
+                        <p>{t('gallery.noPhotos')}</p>
                       </div>
                     )}
                   </div>
@@ -227,7 +231,7 @@ export function GalleryPage() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-lg">No hay secciones disponibles</p>
+            <p className="text-lg">{t('gallery.noSections')}</p>
           </div>
         )}
       </div>

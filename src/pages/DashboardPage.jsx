@@ -12,8 +12,10 @@ import { Label } from "@/components/ui/label"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Textarea } from "@/components/ui/textarea"
 import { toast } from "sonner"
+import { useTranslation } from "react-i18next"
 
 export function DashboardPage() {
+  const { t } = useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [password, setPassword] = useState("")
   const [showPasswordDialog, setShowPasswordDialog] = useState(true)
@@ -334,8 +336,8 @@ export function DashboardPage() {
                     <CardTitle className="text-lg">Invitados Totales</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-3xl font-bold">{stats.totalGuests || 0} / 120</p>
-                    <p className="text-sm text-gray-500 mt-2">Capacidad máxima: 120 invitados</p>
+                    <p className="text-3xl font-bold">{stats.totalGuests || 0} / 140</p>
+                    <p className="text-sm text-gray-500 mt-2">Capacidad máxima: 140 invitados</p>
                   </CardContent>
                 </Card>
 

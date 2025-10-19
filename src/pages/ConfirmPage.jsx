@@ -8,12 +8,13 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from '@/components/ui/dialog';
 import { InvitationCodeForm } from '@/components/InvitationCodeForm';
-import { ConfirmationForm } from '@/components/ConfirmationForm';
-import { X, Plus, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { toast } from 'sonner';
 import confetti from 'canvas-confetti';
+import { useTranslation } from 'react-i18next';
 
 export function ConfirmPage() {
+  const { t } = useTranslation();
   const [guests, setGuests] = useState([{ fullName: '' }]);
   const [isConfirming, setIsConfirming] = useState(false);
   const [isConfirmed, setIsConfirmed] = useState(false);
@@ -122,7 +123,7 @@ export function ConfirmPage() {
     // Validar que al menos un invitado adicional tenga nombre si se abrió el modal
     const hasValidGuest = guests.some(guest => guest.fullName.trim());
     if (!hasValidGuest) {
-      toast.error('Por favor, agrega al menos un invitado adicional');
+      toast.error(t('confirm.form.errorMessage'));
       return;
     }
     
@@ -142,10 +143,10 @@ export function ConfirmPage() {
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle className="text-2xl text-center text-wedding-primary-dark dark:text-wedding-primary">
-              Confirmación Cerrada
+              {t('confirm.notFound.title')}
             </CardTitle>
             <CardDescription className="text-center mt-2">
-              Lo sentimos, el plazo para confirmar asistencia ha terminado.
+              {t('confirm.notFound.description')}
             </CardDescription>
           </CardHeader>
           <CardContent className="text-center">
@@ -176,7 +177,7 @@ export function ConfirmPage() {
         <Card className="w-full max-w-md">
           <CardHeader>
             <CardTitle className="text-2xl text-center text-wedding-primary-dark dark:text-wedding-primary">
-              ¡Asistencia Confirmada!
+              {t('confirm.alreadyConfirmed.title')}
             </CardTitle>
           </CardHeader>
           <CardContent className="text-center">
@@ -184,13 +185,13 @@ export function ConfirmPage() {
               <CheckCircle className="w-16 h-16 text-green-500" />
             </div>
             <h3 className="text-xl font-medium mb-4">
-              ¡Los esperamos en nuestra boda!
+              {t('confirm.alreadyConfirmed.thanksMessage')}
             </h3>
             <p className="mb-6">
-              Gracias por confirmar tu asistencia. Estamos emocionados de compartir este día especial contigo.
+              {t('confirm.alreadyConfirmed.thanksMessage')}
             </p>
             <div className="bg-wedding-primary/10 dark:bg-wedding-primary-dark/10 p-4 rounded-lg">
-              <h4 className="font-medium mb-3 text-center">Invitados confirmados:</h4>
+              <h4 className="font-medium mb-3 text-center">{t('confirm.alreadyConfirmed.guestList')}</h4>
               <ul className="list-disc list-inside space-y-1">
                 {confirmedGuestsList.length > 0 ? (
                   confirmedGuestsList.map((guest, index) => (

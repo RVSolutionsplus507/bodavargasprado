@@ -1,10 +1,23 @@
 
+import { useMemo } from "react"
 import { motion } from "framer-motion"
 import { Shirt, Gift, Church, UtensilsCrossed, Music, Heart } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { OptimizedImage } from "@/components/ui/OptimizedImage"
+import { useTranslation } from "react-i18next"
+
+// Definir iconos fuera del componente para que no se recreen
+const icons = {
+  dressCode: Shirt,
+  ceremony: Church,
+  buffet: UtensilsCrossed,
+  toast: Heart,
+  dance: Music,
+  gifts: Gift,
+}
 
 export function AdditionalInfo() {
+  const { t, i18n } = useTranslation()
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -34,12 +47,14 @@ export function AdditionalInfo() {
     },
   }
 
-  const items = [
+  // Usar useMemo para recalcular items cuando cambie el idioma
+  const items = useMemo(() => [
     {
-      icon: <Shirt className="w-6 h-6" />,
-      title: "Código de Vestimenta",
-      description: "Traje Formal de Verano",
-      details: "Para celebrar este día tan especial, les solicitamos vestir con elegancia. Caballeros: traje formal (excepto crema). Damas: vestido largo o midi elegante, evitando el color blanco.",
+      id: 'dressCode', // ID único que no cambia
+      iconComponent: icons.dressCode,
+      title: t('home.importantInfo.dressCode.title'),
+      description: t('home.importantInfo.dressCode.description'),
+      details: t('home.importantInfo.dressCode.description'),
       image: "/information/vestimenta.webp",
       bgColor: "bg-wedding-primary",
       textColor: "text-wedding-primary",
@@ -47,10 +62,11 @@ export function AdditionalInfo() {
       overlayColor: "bg-wedding-primary/20 group-hover:bg-wedding-primary/30"
     },
     {
-      icon: <Church className="w-6 h-6" />,
-      title: "Ceremonia",
-      description: "Momento Especial",
-      details: "Acompáñanos en este momento único donde uniremos nuestras vidas ante nuestros seres queridos. Tu puntualidad es muy importante para nosotros.",
+      id: 'ceremony',
+      iconComponent: icons.ceremony,
+      title: t('home.importantInfo.ceremony.title'),
+      description: t('home.importantInfo.ceremony.description'),
+      details: t('home.importantInfo.ceremony.description'),
       image: "/information/ceremonia.webp",
       bgColor: "bg-wedding-secondary",
       textColor: "text-wedding-secondary",
@@ -58,10 +74,11 @@ export function AdditionalInfo() {
       overlayColor: "bg-wedding-secondary/20 group-hover:bg-wedding-secondary/30"
     },
     {
-      icon: <UtensilsCrossed className="w-6 h-6" />,
-      title: "Comida Buffet",
-      description: "Deliciosa Variedad",
-      details: "Disfruta de un exquisito buffet con una selección de platos especialmente preparados para ti.",
+      id: 'buffet',
+      iconComponent: icons.buffet,
+      title: t('home.importantInfo.buffet.title'),
+      description: t('home.importantInfo.buffet.description'),
+      details: t('home.importantInfo.buffet.description'),
       image: "/information/menu.webp",
       bgColor: "bg-wedding-accent",
       textColor: "text-wedding-accent",
@@ -69,10 +86,11 @@ export function AdditionalInfo() {
       overlayColor: "bg-wedding-accent/20 group-hover:bg-wedding-accent/30"
     },
     {
-      icon: <Heart className="w-6 h-6" />,
-      title: "Brindis y Celebración",
-      description: "Bar Abierto",
-      details: "Disfruta de una noche mágica con bebidas seleccionadas y un ambiente inolvidable.",
+      id: 'toast',
+      iconComponent: icons.toast,
+      title: t('home.importantInfo.toast.title'),
+      description: t('home.importantInfo.toast.description'),
+      details: t('home.importantInfo.toast.description'),
       image: "/information/drinks.webp",
       bgColor: "bg-wedding-primary-dark",
       textColor: "text-wedding-primary-dark",
@@ -80,10 +98,11 @@ export function AdditionalInfo() {
       overlayColor: "bg-wedding-primary-dark/20 group-hover:bg-wedding-primary-dark/30"
     },
     {
-      icon: <Music className="w-6 h-6" />,
-      title: "Baile y Diversión",
-      description: "¡A Celebrar!",
-      details: "Prepara tus mejores pasos de baile. ¡Ojo! Los capitanes de mesa estarán regalando shots 🥃",
+      id: 'dance',
+      iconComponent: icons.dance,
+      title: t('home.importantInfo.dance.title'),
+      description: t('home.importantInfo.dance.description'),
+      details: t('home.importantInfo.dance.description'),
       image: "/information/brindis.webp",
       bgColor: "bg-wedding-secondary-dark",
       textColor: "text-wedding-secondary-dark",
@@ -91,17 +110,18 @@ export function AdditionalInfo() {
       overlayColor: "bg-wedding-secondary-dark/20 group-hover:bg-wedding-secondary-dark/30"
     },
     {
-      icon: <Gift className="w-6 h-6" />,
-      title: "Lluvia de Sobres",
-      description: "Un Detalle Especial",
-      details: "Si deseas hacernos un regalo, un sobre con amor nos ayudará en esta nueva etapa de vida 💝",
+      id: 'gifts',
+      iconComponent: icons.gifts,
+      title: t('home.importantInfo.gifts.title'),
+      description: t('home.importantInfo.gifts.description'),
+      details: t('home.importantInfo.gifts.description'),
       image: "/information/sobres.webp",
       bgColor: "bg-wedding-accent-dark",
       textColor: "text-wedding-accent-dark",
       hoverTextColor: "group-hover:text-wedding-accent-dark",
       overlayColor: "bg-wedding-accent-dark/20 group-hover:bg-wedding-accent-dark/30"
     },
-  ]
+  ], [t, i18n.language]) // Recalcular cuando cambie el idioma
 
   return (
     <motion.section
@@ -123,18 +143,18 @@ export function AdditionalInfo() {
           </div>
           
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif mb-4 md:mb-6 bg-gradient-to-r from-wedding-primary-dark to-wedding-primary bg-clip-text text-transparent">
-            Información Importante
+            {t('home.importantInfo.title')}
           </h2>
 
           <p className="text-sm sm:text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
-            Todo lo que necesitas saber para disfrutar al máximo de nuestro día especial
+            {t('home.aboutUs.description')}
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 px-4">
           {items.map((item, index) => (
             <motion.div
-              key={item.title}
+              key={item.id}
               variants={itemVariants}
               className="group"
             >
@@ -152,7 +172,7 @@ export function AdditionalInfo() {
 
                   <div className="absolute top-2 left-2 sm:top-3 sm:left-3">
                     <div className={`p-2 sm:p-2.5 rounded-full ${item.bgColor} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                      {item.icon}
+                      {item.iconComponent && <item.iconComponent className="w-6 h-6" />}
                     </div>
                   </div>
                 </div>

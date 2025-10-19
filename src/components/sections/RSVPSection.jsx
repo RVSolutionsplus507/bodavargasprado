@@ -5,8 +5,10 @@ import { motion, useAnimation, useInView } from "framer-motion"
 import { Button } from "@/components/ui/button"
 import { RoughUnderline } from "@/components/ui/RoughUnderline"
 import { useStore } from "@/store/store"
+import { useTranslation } from "react-i18next"
 
 export function RSVPSection() {
+  const { t, i18n } = useTranslation()
   const controls = useAnimation()
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, threshold: 0.2 })
@@ -44,7 +46,7 @@ export function RSVPSection() {
             visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
           }}
         >
-          <strong>Confirma tu Asistencia</strong>
+          <strong>{t('home.rsvp.title')}</strong>
         </motion.h2>
 
         <motion.p
@@ -55,7 +57,7 @@ export function RSVPSection() {
             visible: { opacity: 1, transition: { delay: 0.2, duration: 0.6 } },
           }}
         >
-          Nos encantaría que formes parte de este día tan especial. Por favor confirma tu asistencia{" "}
+          {t('home.rsvp.description')}{" "}
           <RoughUnderline
             show={showAnnotation}
             strokeWidth={3}
@@ -63,7 +65,7 @@ export function RSVPSection() {
             animationDuration={1500}
             color="var(--wedding-primary, #5a8f7b)"
           >
-            <strong>antes del 17 de Diciembre de 2025.</strong>
+            <strong>{new Date(import.meta.env.VITE_RSVP_DEADLINE).toLocaleDateString(i18n.language === 'es' ? 'es-ES' : 'en-US', { day: 'numeric', month: 'long', year: 'numeric' })}</strong>
           </RoughUnderline>
         </motion.p>
 
@@ -76,11 +78,11 @@ export function RSVPSection() {
         >
           {isConfirmed ? (
             <Button disabled className="bg-wedding-primary/50 text-white cursor-not-allowed min-h-[44px] text-sm sm:text-base px-6 sm:px-8">
-              Asistencia Confirmada
+              {t('confirm.alreadyConfirmed.title')}
             </Button>
           ) : (
             <Button asChild className="bg-wedding-primary hover:bg-wedding-primary-dark text-white min-h-[44px] text-sm sm:text-base px-6 sm:px-8">
-              <Link to="/confirm">Confirmar Ahora</Link>
+              <Link to="/confirm">{t('home.rsvp.button')}</Link>
             </Button>
           )}
         </motion.div>
