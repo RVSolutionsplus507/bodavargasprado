@@ -304,11 +304,11 @@ export function DashboardPage() {
         </h1>
 
         <Tabs defaultValue="stats" className="w-full">
-          <TabsList className="mb-6 grid grid-cols-4 w-full">
-            <TabsTrigger value="stats">Estadísticas</TabsTrigger>
-            <TabsTrigger value="invitations">Invitaciones</TabsTrigger>
-            <TabsTrigger value="create">Crear Invitación</TabsTrigger>
-            <TabsTrigger value="gallery">Galería</TabsTrigger>
+          <TabsList className="mb-6 grid grid-cols-2 md:grid-cols-4 w-full gap-2">
+            <TabsTrigger value="stats" className="text-xs sm:text-sm">Estadísticas</TabsTrigger>
+            <TabsTrigger value="invitations" className="text-xs sm:text-sm">Invitaciones</TabsTrigger>
+            <TabsTrigger value="create" className="text-xs sm:text-sm">Crear</TabsTrigger>
+            <TabsTrigger value="gallery" className="text-xs sm:text-sm">Galería</TabsTrigger>
           </TabsList>
 
           <TabsContent value="stats">
@@ -543,14 +543,14 @@ export function DashboardPage() {
                           />
                         </div>
                       </div>
-                      <div className="flex gap-6">
+                      <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
                         <div className="flex items-center space-x-2">
                           <Switch
                             id="allow-upload"
                             checked={newSection.allow_upload}
                             onCheckedChange={(checked) => setNewSection({ ...newSection, allow_upload: checked })}
                           />
-                          <Label htmlFor="allow-upload" className="cursor-pointer">
+                          <Label htmlFor="allow-upload" className="cursor-pointer text-sm">
                             Permitir subir fotos
                           </Label>
                         </div>
@@ -560,7 +560,7 @@ export function DashboardPage() {
                             checked={newSection.is_active}
                             onCheckedChange={(checked) => setNewSection({ ...newSection, is_active: checked })}
                           />
-                          <Label htmlFor="is-active" className="cursor-pointer">
+                          <Label htmlFor="is-active" className="cursor-pointer text-sm">
                             Activar sección
                           </Label>
                         </div>
@@ -583,11 +583,11 @@ export function DashboardPage() {
                         <div className="grid gap-4">
                           {sections.map((section) => (
                             <Card key={section.id} className={!section.is_active ? "opacity-60" : ""}>
-                              <CardContent className="p-4">
-                                <div className="flex items-start justify-between gap-4">
-                                  <div className="flex-1">
-                                    <div className="flex items-center gap-2 mb-2">
-                                      <h4 className="font-semibold text-lg">{section.name}</h4>
+                              <CardContent className="p-3 sm:p-4">
+                                <div className="flex flex-col sm:flex-row items-start justify-between gap-3 sm:gap-4">
+                                  <div className="flex-1 w-full">
+                                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                                      <h4 className="font-semibold text-base sm:text-lg">{section.name}</h4>
                                       {section.is_active ? (
                                         <span className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium bg-green-100 text-green-800">
                                           <Eye className="w-3 h-3 mr-1" />
@@ -601,30 +601,32 @@ export function DashboardPage() {
                                       )}
                                     </div>
                                     {section.description && (
-                                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">{section.description}</p>
+                                      <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 mb-2">{section.description}</p>
                                     )}
-                                    <div className="flex flex-wrap gap-3 text-sm text-gray-500">
+                                    <div className="flex flex-wrap gap-2 sm:gap-3 text-xs sm:text-sm text-gray-500">
                                       <span>Orden: {section.order}</span>
-                                      <span>•</span>
+                                      <span className="hidden sm:inline">•</span>
                                       <span>Fotos: {section.media?.length || 0}</span>
-                                      <span>•</span>
+                                      <span className="hidden sm:inline">•</span>
                                       <span className="flex items-center gap-1">
                                         {section.allow_upload ? (
                                           <>
                                             <Upload className="w-3 h-3" />
-                                            Subida permitida
+                                            <span className="hidden sm:inline">Subida permitida</span>
+                                            <span className="sm:hidden">Subida OK</span>
                                           </>
                                         ) : (
                                           <>
                                             <X className="w-3 h-3" />
-                                            Subida bloqueada
+                                            <span className="hidden sm:inline">Subida bloqueada</span>
+                                            <span className="sm:hidden">Sin subida</span>
                                           </>
                                         )}
                                       </span>
                                     </div>
                                   </div>
-                                  <div className="flex flex-col gap-2">
-                                    <div className="flex gap-2">
+                                  <div className="flex sm:flex-col gap-2 w-full sm:w-auto">
+                                    <div className="flex gap-2 flex-1 sm:flex-initial">
                                       <Button
                                         variant="outline"
                                         size="sm"

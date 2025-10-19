@@ -28,7 +28,7 @@ export const galleryService = {
   // Obtener todas las secciones (para admin)
   getAllSections: async () => {
     try {
-      const response = await api.get("/api/gallery/sections/all")
+      const response = await api.get("/api/gallery/sections")
       
       if (!response.data) {
         throw new Error("No se recibieron datos de las secciones")
