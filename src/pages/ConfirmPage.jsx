@@ -108,7 +108,15 @@ export function ConfirmPage() {
     // Si no se proporcionan invitados (desde el modal), usar el estado actual
     const finalGuests = guestsToConfirm || guests;
     
-    // Filtrar invitados sin nombre y agregar el invitado principal al principio
+    // Si maxGuests es 1, solo confirmar con el invitado principal
+    if (invitationData.data.maxGuests === 1) {
+      confirmAttendanceMutation.mutate({
+        guests: [{ fullName: invitationData.data.primaryGuest }]
+      });
+      return;
+    }
+    
+    // Para múltiples invitados: filtrar invitados sin nombre y agregar el invitado principal al principio
     const validGuests = [
       { fullName: invitationData.data.primaryGuest },
       ...finalGuests.filter(guest => guest.fullName.trim())
