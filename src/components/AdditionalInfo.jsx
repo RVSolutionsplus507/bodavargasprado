@@ -54,7 +54,6 @@ export function AdditionalInfo() {
       iconComponent: icons.dressCode,
       title: t('home.importantInfo.dressCode.title'),
       description: t('home.importantInfo.dressCode.description'),
-      details: t('home.importantInfo.dressCode.description'),
       image: "/information/vestimenta.webp",
       bgColor: "bg-wedding-primary",
       textColor: "text-wedding-primary",
@@ -66,7 +65,6 @@ export function AdditionalInfo() {
       iconComponent: icons.ceremony,
       title: t('home.importantInfo.ceremony.title'),
       description: t('home.importantInfo.ceremony.description'),
-      details: t('home.importantInfo.ceremony.description'),
       image: "/information/ceremonia.webp",
       bgColor: "bg-wedding-secondary",
       textColor: "text-wedding-secondary",
@@ -78,7 +76,6 @@ export function AdditionalInfo() {
       iconComponent: icons.buffet,
       title: t('home.importantInfo.buffet.title'),
       description: t('home.importantInfo.buffet.description'),
-      details: t('home.importantInfo.buffet.description'),
       image: "/information/menu.webp",
       bgColor: "bg-wedding-accent",
       textColor: "text-wedding-accent",
@@ -90,7 +87,6 @@ export function AdditionalInfo() {
       iconComponent: icons.toast,
       title: t('home.importantInfo.toast.title'),
       description: t('home.importantInfo.toast.description'),
-      details: t('home.importantInfo.toast.description'),
       image: "/information/drinks.webp",
       bgColor: "bg-wedding-primary-dark",
       textColor: "text-wedding-primary-dark",
@@ -102,7 +98,6 @@ export function AdditionalInfo() {
       iconComponent: icons.dance,
       title: t('home.importantInfo.dance.title'),
       description: t('home.importantInfo.dance.description'),
-      details: t('home.importantInfo.dance.description'),
       image: "/information/brindis.webp",
       bgColor: "bg-wedding-secondary-dark",
       textColor: "text-wedding-secondary-dark",
@@ -114,7 +109,6 @@ export function AdditionalInfo() {
       iconComponent: icons.gifts,
       title: t('home.importantInfo.gifts.title'),
       description: t('home.importantInfo.gifts.description'),
-      details: t('home.importantInfo.gifts.description'),
       image: "/information/sobres.webp",
       bgColor: "bg-wedding-accent-dark",
       textColor: "text-wedding-accent-dark",
@@ -178,16 +172,12 @@ export function AdditionalInfo() {
                 </div>
 
                 <CardContent className="p-3 sm:p-4 md:p-5">
-                  <h3 className={`text-base sm:text-lg font-serif mb-1.5 sm:mb-2 text-gray-900 dark:text-white ${item.hoverTextColor} transition-colors duration-300`}>
+                  <h3 className={`text-base sm:text-lg font-serif mb-2 sm:mb-3 text-gray-900 dark:text-white ${item.hoverTextColor} transition-colors duration-300`}>
                     {item.title}
                   </h3>
 
-                  <p className={`font-semibold ${item.textColor} mb-1.5 sm:mb-2 text-xs sm:text-sm`}>
-                    {item.description}
-                  </p>
-
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-                    {item.details}
+                    {item.description}
                   </p>
                 </CardContent>
               </Card>
