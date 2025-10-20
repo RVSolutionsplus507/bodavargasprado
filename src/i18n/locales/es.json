@@ -52,27 +52,33 @@
       "title": "Información Importante",
       "dressCode": {
         "title": "Código de Vestimenta",
-        "description": "Traje formal. Queremos que todos luzcan elegantes en nuestro día especial."
+        "subtitle": "Traje Formal de Verano",
+        "description": "Para celebrar este día tan especial, les solicitamos vestir con elegancia. Caballeros: traje formal (excepto crema). Damas: vestido largo o midi elegante, evitando el color blanco."
       },
       "ceremony": {
         "title": "Ceremonia",
-        "description": "Un momento sagrado donde uniremos nuestras vidas ante Dios y nuestros seres queridos."
+        "subtitle": "Momento Especial",
+        "description": "Acompáñanos en este momento único donde uniremos nuestras vidas ante nuestros seres queridos. Tu puntualidad es muy importante para nosotros."
       },
       "buffet": {
         "title": "Comida Buffet",
-        "description": "Deliciosa variedad de platillos para todos los gustos. ¡Disfruta de una experiencia culinaria única!"
+        "subtitle": "Deliciosa Variedad",
+        "description": "Disfruta de un exquisito buffet con una selección de platos especialmente preparados para ti."
       },
       "toast": {
         "title": "Brindis y Celebración",
-        "description": "Bar abierto toda la noche. Brindemos juntos por el amor y la felicidad."
+        "subtitle": "Bar Abierto",
+        "description": "Disfruta de una noche mágica con bebidas seleccionadas y un ambiente inolvidable."
       },
       "dance": {
         "title": "Baile y Diversión",
-        "description": "Música en vivo y DJ para bailar toda la noche. ¡Prepara tus mejores pasos!"
+        "subtitle": "¡A Celebrar!",
+        "description": "Prepara tus mejores pasos de baile. ¡Ojo! Los capitanes de mesa estarán regalando shots "
       },
       "gifts": {
         "title": "Lluvia de Sobres",
-        "description": "Tu presencia es nuestro mejor regalo, pero si deseas obsequiarnos algo, agradecemos tu contribución."
+        "subtitle": "Un Detalle Especial",
+        "description": "Si deseas hacernos un regalo, un sobre con amor nos ayudará en esta nueva etapa de vida "
       }
     },
     "quote": {

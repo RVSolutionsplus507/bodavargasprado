@@ -53,6 +53,7 @@ export function AdditionalInfo() {
       id: 'dressCode', // ID único que no cambia
       iconComponent: icons.dressCode,
       title: t('home.importantInfo.dressCode.title'),
+      subtitle: t('home.importantInfo.dressCode.subtitle'),
       description: t('home.importantInfo.dressCode.description'),
       image: "/information/vestimenta.webp",
       bgColor: "bg-wedding-primary",
@@ -64,6 +65,7 @@ export function AdditionalInfo() {
       id: 'ceremony',
       iconComponent: icons.ceremony,
       title: t('home.importantInfo.ceremony.title'),
+      subtitle: t('home.importantInfo.ceremony.subtitle'),
       description: t('home.importantInfo.ceremony.description'),
       image: "/information/ceremonia.webp",
       bgColor: "bg-wedding-secondary",
@@ -75,6 +77,7 @@ export function AdditionalInfo() {
       id: 'buffet',
       iconComponent: icons.buffet,
       title: t('home.importantInfo.buffet.title'),
+      subtitle: t('home.importantInfo.buffet.subtitle'),
       description: t('home.importantInfo.buffet.description'),
       image: "/information/menu.webp",
       bgColor: "bg-wedding-accent",
@@ -86,6 +89,7 @@ export function AdditionalInfo() {
       id: 'toast',
       iconComponent: icons.toast,
       title: t('home.importantInfo.toast.title'),
+      subtitle: t('home.importantInfo.toast.subtitle'),
       description: t('home.importantInfo.toast.description'),
       image: "/information/drinks.webp",
       bgColor: "bg-wedding-primary-dark",
@@ -97,6 +101,7 @@ export function AdditionalInfo() {
       id: 'dance',
       iconComponent: icons.dance,
       title: t('home.importantInfo.dance.title'),
+      subtitle: t('home.importantInfo.dance.subtitle'),
       description: t('home.importantInfo.dance.description'),
       image: "/information/brindis.webp",
       bgColor: "bg-wedding-secondary-dark",
@@ -108,6 +113,7 @@ export function AdditionalInfo() {
       id: 'gifts',
       iconComponent: icons.gifts,
       title: t('home.importantInfo.gifts.title'),
+      subtitle: t('home.importantInfo.gifts.subtitle'),
       description: t('home.importantInfo.gifts.description'),
       image: "/information/sobres.webp",
       bgColor: "bg-wedding-accent-dark",
@@ -172,9 +178,13 @@ export function AdditionalInfo() {
                 </div>
 
                 <CardContent className="p-3 sm:p-4 md:p-5">
-                  <h3 className={`text-base sm:text-lg font-serif mb-2 sm:mb-3 text-gray-900 dark:text-white ${item.hoverTextColor} transition-colors duration-300`}>
+                  <h3 className={`text-base sm:text-lg font-serif mb-1.5 sm:mb-2 text-gray-900 dark:text-white ${item.hoverTextColor} transition-colors duration-300`}>
                     {item.title}
                   </h3>
+
+                  <p className={`font-semibold ${item.textColor} mb-1.5 sm:mb-2 text-xs sm:text-sm`}>
+                    {item.subtitle}
+                  </p>
 
                   <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
                     {item.description}

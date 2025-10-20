@@ -52,27 +52,33 @@
       "title": "Important Information",
       "dressCode": {
         "title": "Dress Code",
-        "description": "Formal attire. We want everyone to look elegant on our special day."
+        "subtitle": "Formal Summer Attire",
+        "description": "To celebrate this special day, we kindly request elegant attire. Gentlemen: formal suit (except cream). Ladies: long or elegant midi dress, avoiding white."
       },
       "ceremony": {
         "title": "Ceremony",
-        "description": "A sacred moment where we will unite our lives before God and our loved ones."
+        "subtitle": "Special Moment",
+        "description": "Join us in this unique moment where we will unite our lives before our loved ones. Your punctuality is very important to us."
       },
       "buffet": {
         "title": "Buffet Dinner",
-        "description": "Delicious variety of dishes for all tastes. Enjoy a unique culinary experience!"
+        "subtitle": "Delicious Variety",
+        "description": "Enjoy an exquisite buffet with a selection of dishes specially prepared for you."
       },
       "toast": {
-        "title": "Toast & Celebration",
-        "description": "Open bar all night long. Let's toast together to love and happiness."
+        "title": "Toast and Celebration",
+        "subtitle": "Open Bar",
+        "description": "Enjoy a magical evening with selected drinks and an unforgettable atmosphere."
       },
       "dance": {
-        "title": "Dance & Fun",
-        "description": "Live music and DJ to dance all night. Get your best moves ready!"
+        "title": "Dance and Fun",
+        "subtitle": "Let's Celebrate!",
+        "description": "Get your best dance moves ready. Watch out! Table captains will be giving out shots "
       },
       "gifts": {
-        "title": "Gift Registry",
-        "description": "Your presence is our best gift, but if you wish to give us something, we appreciate your contribution."
+        "title": "Money Shower",
+        "subtitle": "A Special Touch",
+        "description": "If you wish to give us a gift, an envelope with love will help us in this new chapter of life "
       }
     },
     "quote": {
