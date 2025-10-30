@@ -183,7 +183,7 @@ export function AccommodationSection() {
                       <p className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">{t('home.accommodation.reservations.contact')}</p>
                       <p className="text-xs text-gray-600 dark:text-gray-300">{t('home.accommodation.reservations.contactName')}</p>
                       <a href="tel:+50767047773" className="text-xs sm:text-sm text-wedding-primary font-medium hover:underline min-h-[44px] inline-flex items-center">
-                        +507 6704-7773
+                        +507 6999-0412
                       </a>
                     </div>
                   </div>
@@ -192,8 +192,8 @@ export function AccommodationSection() {
                     <Mail className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-wedding-primary mt-0.5 flex-shrink-0" />
                     <div>
                       <p className="text-xs sm:text-sm font-medium text-gray-900 dark:text-white">{t('home.accommodation.reservations.email')}</p>
-                      <a href="mailto:rbenedetti@tucancountryclub.com" className="text-xs sm:text-sm text-wedding-primary font-medium hover:underline break-all min-h-[44px] inline-flex items-center">
-                        rbenedetti@tucancountryclub.com
+                      <a href="mailto:operations@skyreachshortstay.com" className="text-xs sm:text-sm text-wedding-primary font-medium hover:underline break-all min-h-[44px] inline-flex items-center">
+                        operations@skyreachshortstay.com
                       </a>
                     </div>
                   </div>
